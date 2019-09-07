@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/jschofie/Desktop'
+let g:netrw_dirhist_2='/Users/jschofie/Local Sites/dungeonlog/app/public/wp-content/plugins/dungeon-adventure-log/.git'
+let g:netrw_dirhist_3='/Users/jschofie/Desktop'

@@ -16,8 +16,7 @@ set shiftwidth=4
 " on pressing tab
 set expandtab
 " when in vue, do 2 spacing...
-autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 expandtab
-
+autocmd FileType vue setlocal shiftwidth=2 tabstop=2 expandtab
 
 """""""""""
 " SYNTAX AND APPEARANCE
@@ -41,11 +40,22 @@ let NERDTreeShowHidden=1
 :set number relativenumber
 :set nu rnu
 
+""""""""""
+" SYSTEM COPY
+""""""""""
+vnoremap <C-C> :w !pbcopy<CR><CR>
 
 """""""""""
 " PLUGINS
 """""""""""
 call plug#begin('~/.vim/plugged')
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" GIT
+Plug 'tpope/vim-fugitive'
 
 " File tree
 Plug 'scrooloose/nerdtree'
@@ -105,10 +115,9 @@ Plug 'dyng/ctrlsf.vim'
 
 " Ale
 Plug 'dense-analysis/ale'
-let g:ale_fixers = ['prettier', 'eslint']
+let g:ale_fixers = ['eslint']
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
-
 
 " Prettier
 Plug 'prettier/vim-prettier', {
@@ -130,6 +139,7 @@ Plug 'prettier/vim-prettier', {
     \ 'ruby',
     \ 'html',
     \ 'swift' ] }
+let g:prettier#config#single_quote = 'true'
 
 " challenger-deep theme
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
@@ -144,7 +154,7 @@ call plug#end()
 colorscheme challenger_deep
 
 
-"if has('nvim') || has('termguicolors')
+if has('nvim') || has('termguicolors')
 set termguicolors
-"endif
+endif
 

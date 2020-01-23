@@ -70,6 +70,9 @@ call plug#begin('~/.vim/bundle')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Autopairs
+Plug 'jiangmiao/auto-pairs'
+
 " git
 Plug 'tpope/vim-fugitive'
 

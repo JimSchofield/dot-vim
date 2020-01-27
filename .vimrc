@@ -83,6 +83,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Autopairs
 Plug 'jiangmiao/auto-pairs'
+nnoremap <leader>ap :call AutoPairsToggle()<CR>
 
 " git
 Plug 'tpope/vim-fugitive'

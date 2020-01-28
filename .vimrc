@@ -10,30 +10,38 @@ set directory^=$HOME/.vim/tmp/
 """""""
 set exrc
 
+" SYSTEM
+nnoremap <leader>s :source ~/.vimrc<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>b :Buffers<CR>
+
 """"""""""
 " TABS
 """""""""""
 filetype plugin indent on
 " show existing with width
-set tabstop=2
+set tabstop=4
 " when indenting with >
-set shiftwidth=2
+set shiftwidth=4
 " on pressing tab
 set expandtab
 " when in vue, do 2 spacing...
-autocmd FileType vue setlocal shiftwidth=2 tabstop=2 expandtab
-autocmd fileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
+" autocmd FileType vue setlocal shiftwidth=2 tabstop=2 expandtab
+" autocmd fileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
+
+" command to switch between...
+command! -nargs=1 ChangeTabs :set shiftwidth=<args> tabstop=<args> expandtab  
 
 """"""""""""
 " Moving lines with Alt-j/k
 " This is specifically MAC
 """"""""""""
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
-inoremap ∆ <Esc>:m .+1<CR>==gi
-inoremap ˚ <Esc>:m .-2<CR>==gi
-vnoremap ∆ :m '+1<CR>gv=gv
-vnoremap ˚ :m '-2<CR>gv=gv
+" nnoremap ∆ :m .+1<CR>==
+" nnoremap ˚ :m .-2<CR>==
+" inoremap ∆ <Esc>:m .+1<CR>==gi
+" inoremap ˚ <Esc>:m .-2<CR>==gi
+" vnoremap ∆ :m '+1<CR>gv=gv
+" vnoremap ˚ :m '-2<CR>gv=gv
 
 """"""""""""
 " google SEARCH
@@ -81,7 +89,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Autopairs
+" Auto-pairs
 Plug 'jiangmiao/auto-pairs'
 nnoremap <leader>ap :call AutoPairsToggle()<CR>
 
@@ -92,28 +100,30 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 map <f6> :NERDTreeToggle<cr>
 
+" RipGrep
+
 " begin cOC
 " code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 let g:coc_global_extensions = [
-    \ 'coc-snippets',
-    \ 'coc-tsserver',
-    \ 'coc-eslint',
-    \ 'coc-json',
-    \ ]
+            \ 'coc-snippets',
+            \ 'coc-tsserver',
+            \ 'coc-eslint',
+            \ 'coc-json',
+            \ ]
 
 " use tab for trigger completion with characters ahead and navigate.
 " use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " use <c-space> to trigger completion.
@@ -129,11 +139,11 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " end coc
@@ -147,10 +157,10 @@ Plug 'tpope/vim-commentary'
 " pluginstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-  " both options are optional. You don't have to install fzf in ~/.fzf
-  " and you don't have to run the install script if you use fzf only in Vim.set runtimepath^=~/.vim/bundle/ctrlp.vim
+" both options are optional. You don't have to install fzf in ~/.fzf
+" and you don't have to run the install script if you use fzf only in Vim.set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:fzf_files_options = '--reverse --preview "(bat {}) 2> /dev/null | head -'.&lines.'"'
-nnoremap <leader>fo :GFiles<cr>
+nnoremap <leader>f :Files<cr>
 
 " ripgrep
 Plug 'jremmen/vim-ripgrep'
@@ -185,6 +195,7 @@ Plug 'mattn/emmet-vim'
 
 
 " search ctrlsf
+vnoremap ∆ :m '+1<CR>gv=gv
 Plug 'dyng/ctrlsf.vim'
 
 " ale
@@ -235,4 +246,3 @@ hi normal guibg=NONE ctermbg=NONE
 "  if has('nvim') || has('termguicolors')
 "  set termguicolors
 "  endif
-

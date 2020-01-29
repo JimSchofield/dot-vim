@@ -3,6 +3,9 @@
 export PATH="$HOME/bin:$PATH"
 export TERM=xterm-256color
 
+export EDITOR=$(which nvim)
+export VISUAL=$(which nvim)
+
 # GENERAL
 alias ll="ls -la"
 alias ip="curl icanhazip.com"

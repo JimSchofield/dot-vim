@@ -10,19 +10,28 @@ set directory^=$HOME/.vim/tmp/
 """""""
 set exrc
 
+""""""""""
 " SYSTEM
+""""""""""
 nnoremap <leader>s :source ~/.vimrc<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>b :Buffers<CR>
+set ignorecase
+set smartcase
+
+""""""""""
+" Search for selected
+""""""""""
+vnoremap <leader>/ y/<C-R>=escape(@",'/\')<CR><CR>
 
 """"""""""
 " TABS
 """""""""""
 filetype plugin indent on
 " show existing with width
-set tabstop=4
+set tabstop=2
 " when indenting with >
-set shiftwidth=4
+set shiftwidth=2
 " on pressing tab
 set expandtab
 " when in vue, do 2 spacing...
@@ -36,12 +45,12 @@ command! -nargs=1 ChangeTabs :set shiftwidth=<args> tabstop=<args> expandtab
 " Moving lines with Alt-j/k
 " This is specifically MAC
 """"""""""""
-" nnoremap ∆ :m .+1<CR>==
-" nnoremap ˚ :m .-2<CR>==
-" inoremap ∆ <Esc>:m .+1<CR>==gi
-" inoremap ˚ <Esc>:m .-2<CR>==gi
-" vnoremap ∆ :m '+1<CR>gv=gv
-" vnoremap ˚ :m '-2<CR>gv=gv
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 """"""""""""
 " google SEARCH
@@ -88,10 +97,17 @@ call plug#begin('~/.vim/bundle')
 " airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Just show the filename (no path) in the tab
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Auto-pairs
 Plug 'jiangmiao/auto-pairs'
 nnoremap <leader>ap :call AutoPairsToggle()<CR>
+inoremap <leader>ap <esc>:call AutoPairsToggle()<CR>i
+
+
+" targets 
+" Plug 'wellle/targets.vim'
 
 " git
 Plug 'tpope/vim-fugitive'

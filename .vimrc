@@ -13,9 +13,11 @@ set exrc
 """"""""""
 " SYSTEM
 """"""""""
+nnoremap <leader>vim :tabe ~/.vimrc<CR>
 nnoremap <leader>s :source ~/.vimrc<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>r :Rg<CR>
 set ignorecase
 set smartcase
 
@@ -177,9 +179,6 @@ Plug 'junegunn/fzf.vim'
 " and you don't have to run the install script if you use fzf only in Vim.set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:fzf_files_options = '--reverse --preview "(bat {}) 2> /dev/null | head -'.&lines.'"'
 nnoremap <leader>f :Files<cr>
-
-" ripgrep
-Plug 'jremmen/vim-ripgrep'
 
 " sortmotion
 Plug 'christoomey/vim-sort-motion'

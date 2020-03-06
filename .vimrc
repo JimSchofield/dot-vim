@@ -13,9 +13,6 @@ set exrc
 """"""""""
 " SYSTEM
 """"""""""
-""""""""""
-" SYSTEM
-""""""""""
 nnoremap <leader>vim :tabe ~/.vimrc<CR>
 nnoremap <leader>s :source ~/.vimrc<CR>
 nnoremap <leader>w :w<CR>
@@ -27,7 +24,6 @@ nnoremap <leader>tab :IndentLinesToggle<CR>
 set ignorecase
 set smartcase
 
-
 """"""""""
 " Search for selected
 """"""""""
@@ -38,9 +34,9 @@ vnoremap <leader>/ y/<C-R>=escape(@",'/\')<CR><CR>
 """""""""""
 filetype plugin indent on
 " show existing with width
-set tabstop=2
+set tabstop=4
 " when indenting with >
-set shiftwidth=2
+set shiftwidth=4
 " on pressing tab
 set expandtab
 " when in vue, do 2 spacing...
@@ -52,7 +48,6 @@ command! -nargs=1 ChangeTabs :set shiftwidth=<args> tabstop=<args> expandtab
 
 """"""""""""
 " Moving lines with Alt-j/k
-" This is specifically MAC
 """"""""""""
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
@@ -103,6 +98,9 @@ vnoremap <C-C> :w !pbcopy<CR><CR>
 """""""""""
 call plug#begin('~/.vim/bundle')
 
+"indent lines
+Plug 'Yggdroot/indentLine'
+
 " airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -124,8 +122,6 @@ Plug 'tpope/vim-fugitive'
 " file tree
 Plug 'scrooloose/nerdtree'
 map <f6> :NERDTreeToggle<cr>
-
-" RipGrep
 
 " begin cOC
 " code completion
@@ -190,31 +186,11 @@ nnoremap <leader>f :Files<cr>
 " sortmotion
 Plug 'christoomey/vim-sort-motion'
 
-
-" php indenting
-Plug '2072/PHP-Indenting-for-VIm'
-
-" php
-Plug 'stanAngeloff/php.vim'
-
-"  " typeScript syntax
-"  plug 'leafgarland/typescript-vim'
-"  " vue
-"  plug 'posva/vim-vue'
-"  " twig
-"  plug 'nelsyeung/twig.vim'
-"  " javascript
-"  " and
-"  " jsx
-"  plug 'pangloss/vim-javascript'
-"  plug 'maxmellon/vim-jsx-pretty'
-
 " polyglot (why I commented languages out above
 Plug 'sheerun/vim-polyglot'
 
 " emmet
 Plug 'mattn/emmet-vim'
-
 
 " search ctrlsf
 vnoremap ∆ :m '+1<CR>gv=gv
@@ -251,19 +227,15 @@ let g:prettier#config#single_quote = 'true'
 " challenger-deep theme
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
-
-" doc gen
-Plug 'kkoomen/vim-doge'
-
 call plug#end()
 
 """""""""""
 " theme
 """""""""""
-" colorscheme new-moon
-colorscheme challenger_deep
+colorscheme new-moon
+" colorscheme challenger_deep
 " set background to be transparent
-hi normal guibg=NONE ctermbg=NONE
+" hi normal guibg=NONE ctermbg=NONE
 
 "  if has('nvim') || has('termguicolors')
 "  set termguicolors

@@ -13,13 +13,20 @@ set exrc
 """"""""""
 " SYSTEM
 """"""""""
+""""""""""
+" SYSTEM
+""""""""""
 nnoremap <leader>vim :tabe ~/.vimrc<CR>
 nnoremap <leader>s :source ~/.vimrc<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>r :Rg<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>tab :IndentLinesToggle<CR>
 set ignorecase
 set smartcase
+
 
 """"""""""
 " Search for selected

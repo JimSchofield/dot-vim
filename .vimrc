@@ -93,6 +93,14 @@ let nerdtreeShowHidden=1
 """"""""""
 vnoremap <C-C> :w !pbcopy<CR><CR>
 
+""""""""""
+" system COPY linux
+" (need to try with mac osx?)
+" (also, xclip or some clipboard provider is necessary)
+""""""""""
+" vnoremap <C-C> "+y
+
+
 """""""""""
 " plugins
 """""""""""

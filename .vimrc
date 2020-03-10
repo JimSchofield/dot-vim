@@ -21,6 +21,8 @@ nnoremap <leader>r :Rg<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>tab :IndentLinesToggle<CR>
+"clear search
+nnoremap <leader>cs :noh<CR>
 set ignorecase
 set smartcase
 

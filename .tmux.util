@@ -1,0 +1,16 @@
+#!/bin/bash
+
+toggle_mouse() {
+    current=$(tmux show -gv mouse)
+    new=""
+
+    if [ "$current" = "on" ]
+    then
+        new="off"
+    else
+        new="on"
+    fi
+
+    tmux set -g mouse $new
+    tmux display "mouse: $new"
+}

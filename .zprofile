@@ -13,6 +13,9 @@ alias ip="curl icanhazip.com"
 alias nip="ipconfig getifaddr en8"
 alias c="clear"
 
+# FZF
+cd $(fd --type d | fzf)
+
 # HTTP-SERVER
 alias serve="http-server ."
 

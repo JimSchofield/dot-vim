@@ -31,6 +31,19 @@ vnoremap <leader>p "_dP
 set ignorecase
 set smartcase
 
+""""""""""""""""""""""""""
+" Toggle Mouse control
+""""""""""""""""""""""""""
+function! ToggleMouse()
+  if &mouse == 'a'
+    set mouse=
+  else
+    set mouse=a
+  endif
+endfunc
+nnoremap <leader>m :call ToggleMouse()<CR>
+
+
 
 """"""""""
 " Search for selected

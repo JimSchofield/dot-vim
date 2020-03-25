@@ -202,6 +202,9 @@ function! s:show_documentation()
     endif
 endfunction
 
+" Use COC go to def
+nmap <silent> <leader>gd <Plug>(coc-definition)
+
 " end coc
 
 " surround

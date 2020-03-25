@@ -283,9 +283,11 @@ call plug#end()
 """""""""""
 colorscheme new-moon
 " colorscheme challenger_deep
+
 " set background to be transparent
 " hi normal guibg=NONE ctermbg=NONE
 
-"  if has('nvim') || has('termguicolors')
-"  set termguicolors
-"  endif
+" Set explicit visual selection colors
+hi Visual guibg=#334455 gui=none
+
+set termguicolors

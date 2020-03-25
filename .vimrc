@@ -9,6 +9,7 @@ set directory^=$HOME/.vim/tmp/
 " Set vimr files per project
 """""""
 set exrc
+
 """"""""""
 " SYSTEM
 """"""""""
@@ -41,7 +42,7 @@ function! ToggleMouse()
   else
     set mouse=a
     :echom "Mouse turned on"
-  endifuuuu
+  endif
 endfunc
 nnoremap <leader>m :call ToggleMouse()<CR>
 
@@ -230,6 +231,9 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 
 " surround
 Plug 'tpope/vim-surround'
+
+" repeat
+Plug 'tpope/vim-repeat'
 
 " comment
 Plug 'tpope/vim-commentary'

@@ -76,7 +76,20 @@ set expandtab
 " autocmd fileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
 
 " command to switch between...
-command! -nargs=1 ChangeTabs :set shiftwidth=<args> tabstop=<args> expandtab  
+command! -nargs=1 ChangeTabs :set shiftwidth=<args> tabstop=<args> expandtab
+
+" toggle tabs between 2 and 4
+function! ToggleTabs()
+    if &shiftwidth == '2'
+        ChangeTabs 4
+        :echom "Tabs are set to 4 spaces"
+    else
+        ChangeTabs 2
+        :echom "Tabs are set to 2 spaces"
+    endif
+endfunction
+:nnoremap <leader>tt :call ToggleTabs()<cr>
+
 
 """"""""""""
 " Moving lines with Alt-j/k
